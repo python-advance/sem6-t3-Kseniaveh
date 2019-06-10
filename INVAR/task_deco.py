@@ -2,7 +2,6 @@
 import urllib.request 
 from xml.etree import ElementTree as ET
 import json
- 
 
 class CurrenciesXMLData:
     """Класс для получения данных с сайта Центробанка РФ"""
@@ -16,7 +15,6 @@ class CurrenciesXMLData:
         valutes.update({row.find('CharCode').text: float(row.find('Value').text.replace(",", "."))})
       valutes.update({'RUB': 1})
       return valutes
-
 
 class CurrenciesJSONData:
     """ 
@@ -40,8 +38,6 @@ class CurrenciesJSONData:
         """
         with open('data.json', 'w', encoding='utf-8') as f:
             f.write(self.get_currencies())
-
-
 
 data = CurrenciesXMLData()
 data= CurrenciesJSONData(data)
